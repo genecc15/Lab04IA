@@ -22,28 +22,26 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        StreamsDemo Intento = new StreamsDemo();
-        /*var randomNumbers = Intento.createRandomList(10);
-        System.out.println(randomNumbers);
-        Intento.sortLambdaList(randomNumbers);
-        System.out.println(randomNumbers);*/
+        StreamsDemo streamsDemo = new StreamsDemo();
         
         Scanner read = new Scanner (System.in);
         System.out.println("Ingrese n");
         String num = read.nextLine();
-//        var listadoPrimos = Intento.createRandomList(Integer.valueOf(num)).parallelStream()
-//            .filter(n -> Intento.isPrimeNumber(n))
-//            .sorted()
-//            .peek(System.out::println)
-//            .collect(Collectors.toList());
-//        
-//        System.out.println("Calculo Finalizado");
-//        
-//        System.out.println("Primer primo " + listadoPrimos.get(0));
-            
-        System.out.println(Intento.NPrimo(Integer.valueOf(num)));
-
- 
-        //System.out.println(Fibonacci.get(5));
+        var listadoPrimos = streamsDemo.createRandomList(Integer.valueOf(num)).parallelStream()
+            .filter(n -> streamsDemo.isPrimeNumber(n))
+            .sorted()
+            .peek(System.out::println)
+            .collect(Collectors.toList());
+        
+        System.out.println("Calculo Finalizado");
+        
+        System.out.println("Primer primo " + listadoPrimos.get(0));
+        
+        var listadoFibonacci = listadoPrimos.stream()
+                .map(j -> streamsDemo.NFibonacci(j))
+                .collect(Collectors.toList());
+        
+        System.out.println(listadoFibonacci);
+                
     }
 }
