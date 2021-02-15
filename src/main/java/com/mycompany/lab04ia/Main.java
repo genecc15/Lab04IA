@@ -31,15 +31,17 @@ public class Main {
         Scanner read = new Scanner (System.in);
         System.out.println("Ingrese n");
         String num = read.nextLine();
-        var listadoPrimos = Intento.createRandomList(Integer.valueOf(num)).parallelStream()
-            .filter(n -> Intento.isPrimeNumber(n))
-            .peek();
-            .sorted()
-            .collect(Collectors.toList());
-        
-        System.out.println("Calculo Finalizado");
-        
-        System.out.println("Primer primo " + listadoPrimos.get(listadoPrimos.size()-1));
+//        var listadoPrimos = Intento.createRandomList(Integer.valueOf(num)).parallelStream()
+//            .filter(n -> Intento.isPrimeNumber(n))
+//            .sorted()
+//            .peek(System.out::println)
+//            .collect(Collectors.toList());
+//        
+//        System.out.println("Calculo Finalizado");
+//        
+//        System.out.println("Primer primo " + listadoPrimos.get(0));
+            
+        System.out.println(Intento.NPrimo(Integer.valueOf(num)));
 
  
         //System.out.println(Fibonacci.get(5));
