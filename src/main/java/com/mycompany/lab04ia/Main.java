@@ -42,6 +42,12 @@ public class Main {
                 .collect(Collectors.toList());
         
         System.out.println(listadoFibonacci);
+        
+           var listadoFibonacciParalelo = listadoPrimos.parallelStream()
+                .map(j -> streamsDemo.NFibonacci(j))
+                .collect(Collectors.toList());
+        
+        System.out.println(listadoFibonacciParalelo);
                 
     }
 }

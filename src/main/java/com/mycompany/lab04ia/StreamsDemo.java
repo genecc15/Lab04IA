@@ -44,38 +44,6 @@ public class StreamsDemo {
         return contador <= 0;
     }
     
-    public Integer NPrimo(int n){
-        var cont = 0;
-        var numero = 1;
-        while (cont < n)
-        {
-            if(isPrimeNumber(numero)){
-                cont++;
-                numero++;
-            }
-            else
-            {
-                numero++;
-            }
-        }
-        return numero-1; //Ya me dio sueñito
-    }
-        public List <Integer> CreateFibonacci(int n){
-         List<Integer> Fibonacci = new ArrayList();
-         int serie = 10, num1 = 0, num2 = 1, suma = 1;
-        
-        for (int i = 1; i < serie; i++) {
-            Fibonacci.add(suma);
-            //primero sumamos
-            suma = num1 + num2;
-            //Despues, cambiamos la segunda variable por la primera
-            num1 = num2;
-            //Por ultimo, cambiamos la suma por la segunda variable
-            num2 = suma;
-        }
-        return Fibonacci;
-        }
-        
         public BigInteger NFibonacci(int n){
          int serie = n; 
          BigInteger num1 = new BigInteger("0");
@@ -88,8 +56,7 @@ public class StreamsDemo {
             num1 = num2;
             //Por ultimo, cambiamos la suma por la segunda variable
             num2 = suma;
-        }
-        
+        }      
         return suma;
         }
         
