@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.math.BigInteger;
 
 /**
  *
@@ -74,4 +75,22 @@ public class StreamsDemo {
         }
         return Fibonacci;
         }
+        
+        public BigInteger NFibonacci(int n){
+         int serie = n; 
+         BigInteger num1 = new BigInteger("0");
+         BigInteger num2 = new BigInteger("1");
+         BigInteger suma = new BigInteger("1");
+        for (int i = 1; i < serie; i++) {
+            //primero sumamos
+            suma = num1.add(num2);
+            //Despues, cambiamos la segunda variable por la primera
+            num1 = num2;
+            //Por ultimo, cambiamos la suma por la segunda variable
+            num2 = suma;
+        }
+        
+        return suma;
+        }
+        
  }
