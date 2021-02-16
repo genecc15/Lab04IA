@@ -23,31 +23,34 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         StreamsDemo streamsDemo = new StreamsDemo();
-        
+        long TInicioS, TFinS, tiempoS, TInicioP, TFinP, tiempoP;
+        TInicioS = System.currentTimeMillis();
         Scanner read = new Scanner (System.in);
         System.out.println("Ingrese n");
         String num = read.nextLine();
         var listadoPrimos = streamsDemo.createRandomList(Integer.valueOf(num)).parallelStream()
             .filter(n -> streamsDemo.isPrimeNumber(n))
             .sorted()
-            .peek(System.out::println)
             .collect(Collectors.toList());
-        
-        System.out.println("Calculo Finalizado");
-        
-        System.out.println("Primer primo " + listadoPrimos.get(0));
         
         var listadoFibonacci = listadoPrimos.stream()
                 .map(j -> streamsDemo.NFibonacci(j))
                 .collect(Collectors.toList());
         
         System.out.println(listadoFibonacci);
-        
+        TFinS = System.currentTimeMillis();
+        tiempoS = TFinS -TInicioS;
+        System.out.println("Tiempo de ejecución en Serial: "+ tiempoS);
+        TInicioP = System.currentTimeMillis();
            var listadoFibonacciParalelo = listadoPrimos.parallelStream()
                 .map(j -> streamsDemo.NFibonacci(j))
                 .collect(Collectors.toList());
         
         System.out.println(listadoFibonacciParalelo);
-                
+        TFinP = System.currentTimeMillis();
+        tiempoP = TFinP - TInicioP;
+        System.out.println("Tiempo de ejecución en Paralelo: "+ tiempoP);
+        
+    
     }
 }
